@@ -91,14 +91,11 @@ all_trips %>%
   arrange(usertype, weekday) # sorts
 
 
-
-all_trips %>% group_by(usertype,ride_type)
-
-
 all_trips %>%
   group_by(usertype) %>%  #groups by usertype and weekday
   arrange(ride_type)
 
+#Code to see the usage of bykes by types 
 nrow(all_trips[all_trips$ride_type == "classic_bike",])
 nrow(all_trips[all_trips$ride_type == "docked_bike",])
 nrow(all_trips[all_trips$ride_type == "electric_bike",])
@@ -114,8 +111,6 @@ nrow(docked_bike[docked_bike$usertype == "casual",])
 nrow(docked_bike[docked_bike$usertype == "member",])
 
 electric_bike <- all_trips %>% filter(ride_type == "electric_bike")
-
-
 
 nrow(electric_bike[electric_bike$usertype == "casual",])
 
